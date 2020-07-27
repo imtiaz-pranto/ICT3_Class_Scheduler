@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ICT3 Class Scheduler</string>
+    <string name="datetext">Date</string>
+    <string name="daytext">Day of the week</string>
+    <string name="course">Course</string>
+    <string name="join_class">Join CLass</string>
+    <string name="course2">Course</string>
+    <string name="join_class2">Join CLass</string>
+    <string name="notifychannel">notifyChannel</string>
+    <string name="contactBanner">Contacts of Teachers</string>
+</resources>
