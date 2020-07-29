@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "746341965369",
+    "firebase_url": "https://ict-class-scheduler.firebaseio.com",
+    "project_id": "ict-class-scheduler",
+    "storage_bucket": "ict-class-scheduler.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746341965369:android:d5d2dba1856f4d036d37e8",
+        "android_client_info": {
+          "package_name": "com.imtiaz.ict3classscheduler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746341965369-u72kmrtu8d0ess8ii6gicmleabqpq42j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.imtiaz.ict3classscheduler",
+            "certificate_hash": "c1bcda2b82cfb4ce430da551ebc73f49dddeb513"
+          }
+        },
+        {
+          "client_id": "746341965369-i966vdgi4fmqphbo8nogffigcqorqonm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0YMd-Gu87M_oEhZ_hcdxd2a7T5RygKaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746341965369-i966vdgi4fmqphbo8nogffigcqorqonm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
