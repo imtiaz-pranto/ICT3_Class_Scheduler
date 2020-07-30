@@ -1,15 +1,16 @@
 package com.imtiaz.ict3classscheduler;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -18,13 +19,34 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView dayVar, dateVar, courseVar, course2Var, join1var;
+    ConstraintLayout mainlayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mainlayout = findViewById(R.id.main);
+        mainlayout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
+            @Override
+            public void onSwipeLeft() {
+                super.onSwipeLeft();
+                startActivity(new Intent(getApplicationContext()
+                        , Contacts.class));
+                overridePendingTransition(0,0);
+            }
+            @Override
+            public void onSwipeRight() {
+                super.onSwipeRight();
+                startActivity(new Intent(getApplicationContext()
+                        , Notice.class));
+                overridePendingTransition(0, 0);
+            }
+        });
 
-        TextView dayVar, dateVar, courseVar, course2Var, join1var;
-        String dayCompare;
+
+
+
 
  //Navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -45,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
                                 , Contacts.class));
                         overridePendingTransition(0,0);
                         return true;
+                    case R.id.notice:
+                        startActivity(new Intent(getApplicationContext()
+                                , Notice.class));
+                        overridePendingTransition(0, 0);
+                        return true;
                     case R.id.links:
                         startActivity(new Intent(getApplicationContext()
                                 , Links.class));
@@ -56,7 +83,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        ConstraintLayout constraintLayout2 = findViewById(R.id.courseLayout2);
+
+
+
+        LinearLayout layout2 = findViewById(R.id.courseLayout2);
         Calendar calendar = Calendar.getInstance();
         String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(calendar.getTime());
 
@@ -65,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
         dateVar= findViewById(R.id.date);
         dayVar.setText(splitDate[0]);
         dateVar.setText(splitDate[1]);
-        dayCompare = splitDate[0];
         courseVar = findViewById(R.id.course);
         course2Var = findViewById(R.id.course2);
         join1var = findViewById(R.id.join1);
@@ -84,11 +113,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case Calendar.TUESDAY:
                 courseVar.setText("Course: Multimedia Communication (MC) \n" + "Lecturer: Dr. Mohammad Junaebur Rashid (DU)\n"+ "Time :  3 PM\n" + "(Visit CLassroom for link and attendence)");
-                constraintLayout2.setVisibility(View.INVISIBLE);
+                layout2.setVisibility(View.INVISIBLE);
                 break;
             case Calendar.WEDNESDAY:
                 courseVar.setText("Course: Information Theory & Coding (ITC) \n" + "Lecturer: Dr. M. Shamim Kaiser (IIT, DU)\n"+ "Time : 9 - 10 AM");
-                constraintLayout2.setVisibility(View.INVISIBLE);
+                layout2.setVisibility(View.INVISIBLE);
                 break;
             case Calendar.THURSDAY:
                 courseVar.setText("Course: ICT Project Management \n" + "Lecturer: S. M. Shamim Reza (ICT, BUP)\n"+ "Time : 9 - 10 AM");
@@ -96,12 +125,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case Calendar.FRIDAY:
                 courseVar.setText("Weekend Chill Time!!!");
-                constraintLayout2.setVisibility(View.INVISIBLE);
+                layout2.setVisibility(View.INVISIBLE);
                 join1var.setVisibility(View.GONE);
                 break;
             case Calendar.SATURDAY:
                 courseVar.setText("Weekend CHill Time!!!");
-                constraintLayout2.setVisibility(View.INVISIBLE);
+                layout2.setVisibility(View.INVISIBLE);
                 join1var.setVisibility(View.INVISIBLE);
                 break;
         }

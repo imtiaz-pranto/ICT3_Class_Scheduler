@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/routinelayout"
-    tools:context=".Routine">
+    android:id="@+id/noticelayout"
+    tools:context=".Notice">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -18,16 +18,4 @@
         app:menu="@menu/menu_navigation"
         tools:ignore="MissingConstraints" />
 
-    <ImageView
-        android:id="@+id/routineview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:contentDescription="routine"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.304"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202"
-        app:srcCompat="@drawable/routine" />
 </androidx.constraintlayout.widget.ConstraintLayout>

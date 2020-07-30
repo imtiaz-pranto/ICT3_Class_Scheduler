@@ -6,6 +6,10 @@
         android:title="Routine"
         android:icon="@drawable/ic_routine"/>
     <item
+        android:id="@+id/notice"
+        android:title="Notice"
+        android:icon="@drawable/ic_notice"/>
+    <item
         android:id="@+id/home"
         android:title="Home"
         android:icon="@drawable/ic_home"/>
