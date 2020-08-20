@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/contactlayout"
-    tools:context=".Contacts">
+    tools:context=".Contacts"
+    android:orientation="vertical">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -16,31 +17,15 @@
         app:itemIconTint="#D2D6E3"
         app:itemTextColor="@android:color/white"
         app:menu="@menu/menu_navigation"
-        tools:ignore="MissingConstraints" />
-
-    <ListView
-        android:id="@+id/idList"
+        tools:ignore="MissingConstraints" >
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+    <ExpandableListView
+        android:id="@+id/expandableListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:divider="@color/DarkSlateBlue"
+        android:dividerHeight="5dp"
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+         />
 
-    <TextView
-        android:id="@+id/bannercontact"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:text="@string/contactBanner"
-        android:textAlignment="center"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

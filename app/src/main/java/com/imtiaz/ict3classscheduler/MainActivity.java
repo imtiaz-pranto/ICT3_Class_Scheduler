@@ -13,6 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -21,12 +24,17 @@ public class MainActivity extends AppCompatActivity {
 
     TextView dayVar, dateVar, courseVar, course2Var, join1var;
     ConstraintLayout mainlayout;
+    public FirebaseRemoteConfig firebaseRemoteConfig;
+    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mainlayout = findViewById(R.id.main);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+//swipe
         mainlayout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
             @Override
             public void onSwipeLeft() {
@@ -46,6 +54,18 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+//Init Firebase
+        firebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
+        FirebaseRemoteConfigSettings configSettings = new FirebaseRemoteConfigSettings.Builder().build();
+        firebaseRemoteConfig.setConfigSettingsAsync(configSettings);
+
+        //Init Default
+//        Map<String, Object> defaultdata = new HashMap<>();
+//        defaultdata.put("SKlink", "https://classroom.google.com/u/0/c/MTM3Mjg2MzI4NzI4");
+//        firebaseRemoteConfig.setDefaultsAsync(defaultdata);
+//        firebaseRemoteConfig.fetch(0);
+//        SKlink = (firebaseRemoteConfig.getString(SKlink));
+//        firebaseRemoteConfig.fetchAndActivate();
 
 
  //Navigation
@@ -81,10 +101,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-
-
-
-
 
         LinearLayout layout2 = findViewById(R.id.courseLayout2);
         Calendar calendar = Calendar.getInstance();
@@ -155,7 +171,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(joinTuesIntent);
                 break;
             case Calendar.WEDNESDAY:
-                Intent joinWedIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://us04web.zoom.us/j/3252488765")); //ShamimKaiser
+                //Init Default
+                Intent joinWedIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://classroom.google.com/u/0/c/MTM3Mjg2MzI4NzI4")); //ShamimKaiser
                 startActivity(joinWedIntent);;
                 break;
             case Calendar.THURSDAY:
@@ -170,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
         int day = cal.get(Calendar.DAY_OF_WEEK);
         switch(day) {
             case Calendar.SUNDAY:
-                Intent joinSunIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://us04web.zoom.us/j/3252488765")); //ShamimKKaiser
+                Intent joinSunIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://classroom.google.com/u/0/c/MTM3Mjg2MzI4NzI4")); //ShamimKKaiser
                 startActivity(joinSunIntent);
                 break;
             case Calendar.MONDAY:

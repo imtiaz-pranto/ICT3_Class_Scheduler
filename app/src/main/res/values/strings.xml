@@ -8,4 +8,5 @@
     <string name="join_class2">Join CLass</string>
     <string name="notifychannel">notifyChannel</string>
     <string name="contactBanner">Contacts of Teachers</string>
+    <string name="noticesbanner">Notices</string>
 </resources>

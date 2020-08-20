@@ -7,30 +7,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class Contacts extends AppCompatActivity {
-    ListView namelist;
-    String[] teachers={
-            "SM Salim Reza (BUP)-ICT Project Management",
-            "Dr. Md. Junayebur Rashid (DU) - Multimedia Comm.",
-            "Dr. M. Shamim Kaiser (JU)-Info Theory and Coding",
-            "Hasan Mahmud (IUT)-Web Engineering",
-            "Zarin Tasnim - Batch Cordinator",
-            "Md. Ehsanul Kabir - Section Officer",
-            "Md. Faizur Rahman - Section Officer"
-    };
-    String[] numbers= {"01769021808", "01911701485","01711932323","01844056187","01769021809","01769021830","01769021816"};
-    ConstraintLayout contactlayoutvar;
+
+    ExpandableListView expandableListView;
+    ExpandableListAdapter expandableListAdapter;
+    List<String> expandableListTitle;
+    HashMap<String, List<String>> expandableListDetail;
+    LinearLayout contactlayoutvar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +52,6 @@ public class Contacts extends AppCompatActivity {
                 overridePendingTransition(0, 0);
             }
         });
-
-        namelist =(ListView) findViewById(R.id.idList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line,teachers);
-        namelist.setAdapter(adapter);
 
 //navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -94,21 +87,52 @@ public class Contacts extends AppCompatActivity {
             }
         });
 
+        expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
+        expandableListDetail = ExpandableListDataPump.getData();
+        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+        expandableListAdapter = new CustomExpandableListAdapter(this, expandableListTitle, expandableListDetail);
+        expandableListView.setAdapter(expandableListAdapter);
+        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
 
+            @Override
+            public void onGroupExpand(int groupPosition) {
+//                Toast.makeText(getApplicationContext(),
+//                        expandableListTitle.get(groupPosition) + " List Expanded.",
+//                        Toast.LENGTH_SHORT).show();
+            }
+        });
 
-//list clipboard
-        namelist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Toast.makeText(Contacts.this, "Phone number of " + teachers[i] + " copied to the clipboard!", Toast.LENGTH_SHORT).show();
-                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                    ClipData clip = ClipData.newPlainText("Numbers",numbers[i]);
-                    clipboard.setPrimaryClip(clip);
-                }
-            });
+        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
 
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+//                Toast.makeText(getApplicationContext(),
+//                        expandableListTitle.get(groupPosition) + " List Collapsed.",
+//                        Toast.LENGTH_SHORT).show();
 
+            }
+        });
 
+        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                Toast.makeText(
+                        getApplicationContext(),
+//                        expandableListTitle.get(groupPosition)
+                        expandableListDetail.get(
+                                expandableListTitle.get(groupPosition)).get(
+                                childPosition) + " copied to clipboard", Toast.LENGTH_SHORT
+                ).show();
 
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Numbers",expandableListDetail.get(
+                        expandableListTitle.get(groupPosition)).get(
+                        childPosition));
+                clipboard.setPrimaryClip(clip);
+                return false;
+            }
+        });
     }
+
 }

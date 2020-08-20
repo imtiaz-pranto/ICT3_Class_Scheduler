@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:id="@+id/noticelayout"
     tools:context=".Notice">
 
@@ -18,4 +19,138 @@
         app:menu="@menu/menu_navigation"
         tools:ignore="MissingConstraints" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/noticebanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/noticesbanner"
+        android:textSize="30sp"
+        android:fontFamily="sans-serif-black"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/refresh"
+        android:layout_width="wrap_content"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5sp"
+        android:onClick="refresh"
+        android:text="Refresh"
+        android:textSize="10sp"
+        android:textAllCaps="false"/>
+
+    <TextView
+        android:id="@+id/notice1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15sp"
+        android:paddingBottom="15sp"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:background="#C1F4F4"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/Black"
+        android:layout_marginBottom="7dp" />
+    <TextView
+        android:id="@+id/notice2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15sp"
+        android:paddingBottom="15sp"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:background="#C1F4F4"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/Black"
+        android:layout_marginBottom="7dp" />
+
+        />
+    <TextView
+        android:id="@+id/notice3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15sp"
+        android:paddingBottom="15sp"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:background="#C1F4F4"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/Black"
+        android:layout_marginBottom="7dp" />
+    <TextView
+        android:id="@+id/notice4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15sp"
+        android:paddingBottom="15sp"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:background="#C1F4F4"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/Black"
+        android:layout_marginBottom="7dp" />
+    <TextView
+        android:id="@+id/notice5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15sp"
+        android:paddingBottom="15sp"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:background="#C1F4F4"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/Black"
+        android:layout_marginBottom="7dp" />
+
+    <TextView
+        android:id="@+id/notice6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15sp"
+        android:paddingBottom="15sp"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:background="#C1F4F4"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/Black"
+        android:layout_marginBottom="7dp" />
+    <TextView
+        android:id="@+id/notice7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15sp"
+        android:paddingBottom="15sp"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:background="#C1F4F4"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/Black"
+        android:layout_marginBottom="7dp" />
+    <TextView
+        android:id="@+id/notice8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="15sp"
+        android:paddingBottom="15sp"
+        android:paddingLeft="5sp"
+        android:paddingRight="5sp"
+        android:background="#C1F4F4"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/Black"
+        android:layout_marginBottom="7dp" />
+
+
+
+
+</LinearLayout>
