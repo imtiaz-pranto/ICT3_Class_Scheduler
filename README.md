@@ -1,5 +1,5 @@
 # Class_Scheduler
-The working version of ict class scheduler, v1.3
+<b>The Final Version of Online Class Scheduler, v1.3</b>
 <br>
 This app is built to help navigate through daily online classes links, teacher expandable contact list for mail and phone number copy to clipboard function , online noticeboard with firebase remote config, firebase cloud notification, the routine view and the file links for the current semester.
 Bottom Navigation is used for tab navigation. Swipe function is implemented for easier navigation.
